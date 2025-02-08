@@ -1,0 +1,57 @@
+1. Driver Methods:
+These are the methods used to interact with the web browser (e.g., Chrome, Firefox). The WebDriver is the primary interface in Selenium, and driver methods allow you to open the browser, navigate to URLs, maximize the window, etc.
+
+Key Driver Methods:
+driver.get(): Opens a URL.
+driver.quit(): Closes the browser and ends the session.
+driver.close(): Closes the current window (if multiple windows/tabs are open).
+driver.navigate().to(): Navigates to a specified URL (same as driver.get() but with slight differences).
+driver.navigate().back(), driver.navigate().forward(): Navigate back/forward through the browser history.
+driver.manage().window().maximize(): Maximizes the browser window.
+
+2. Find Web Elements:
+Finding web elements is crucial because, in automation, we need to identify specific elements (buttons, input fields, links, etc.) to interact with. Selenium provides several methods to locate elements by different locators (ID, name, class name, XPath, CSS selector, etc.).
+
+Key Methods:
+driver.find_element_by_id("id"): Finds an element by its id attribute.
+driver.find_element_by_name("name"): Finds an element by its name attribute.
+driver.find_element_by_xpath("xpath"): Finds an element using an XPath expression.
+driver.find_element_by_css_selector("css selector"): Finds an element by its CSS selector.
+driver.find_element_by_class_name("class name"): Finds an element by its class name.
+driver.find_elements_*: These methods return a list of elements matching the criteria (e.g., find_elements_by_xpath).
+
+3. Exceptions:
+Handling exceptions is important in automation to gracefully handle issues like an element not being found, a timeout, or a failure during interaction. Selenium provides try-except blocks and built-in exceptions.
+
+Key Exceptions:
+NoSuchElementException: Raised when an element cannot be found.
+TimeoutException: Raised when the script times out waiting for an element.
+ElementNotInteractableException: Raised when an element is not interactable (e.g., disabled).
+StaleElementReferenceException: Raised when the reference to the element is no longer valid.
+WebDriverException: A general exception related to WebDriver issues.
+
+4. Wait Times:
+In Selenium, waiting for elements to appear or become clickable is essential for reliable tests. Selenium provides two main types of waits:
+
+Types of Waits:
+Implicit Wait: This is set once and applies globally throughout the script. It tells Selenium to wait a certain amount of time before throwing a NoSuchElementException when finding elements.
+
+Explicit Wait: Allows you to define a specific wait condition for a particular element. It waits for the element to meet the condition (like being clickable) within a specified time frame.
+
+Fluent Wait: A more advanced wait where you can set polling intervals and define the condition more precisely.
+
+5. Browser Options and Configuration:
+You may want to configure your browser (e.g., headless mode, maximizing the window, disabling notifications).
+
+Headless Mode: Run tests without opening a browser window (useful for CI pipelines)
+
+6. Actions and Interactions:
+Selenium allows you to simulate advanced user interactions, like mouse movements, clicks, and keyboard inputs using ActionChains.
+
+Clicking an element: element.click()
+
+Sending keystrokes: element.send_keys("hello world")
+7. Browser Window Handling:
+Handling multiple browser windows or tabs.
+
+Switching between windows: driver.switch_to.window(window_handle)
